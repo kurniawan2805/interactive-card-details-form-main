@@ -233,6 +233,7 @@ input:invalid {
         background-image: url("images/bg-main-desktop.png");
         background-color: white;
         width: 50%;
+        max-width: 475px;
         height: 100%;
     }
 
@@ -258,7 +259,7 @@ input:invalid {
     form{
         max-width: 30vw;
         margin: 0 auto;
-        margin-right: 150px;
+        margin-right: 220px;
         /* display: flex; */
         flex-grow: 1;
         /* align-items: flex-end; */

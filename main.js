@@ -6,17 +6,6 @@ numberValue.addEventListener('input', updateNumber);
 function updateNumber(e){
     e.target.value = e.target.value.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ');
     cardNumber.innerHTML=e.target.value;
-    let cardNumber_fix = cardNumber.innerHTML.replace(/\s/g, '');
-    let isNumber = /^\d+$/.test(cardNumber_fix);
-
-    let num_val = document.getElementById("number_valid");
-    if(!isNumber){
-        // console.log("False")
-        num_val.classList.remove("hidden")
-        // console.log(num_val)
-    } else {
-        num_val.classList.add("hidden")
-    }
 }
 
 let nameValue = document.getElementById("name");
@@ -50,8 +39,57 @@ cvcValue.oninput = e => {
 let submit_button =document.getElementById("submit");
 
 submit_button.onclick = e => {
-    console.log("Submit")
+    checkName();
+    checkNumber();
+    checkDate();
+    checkCVC();
 }
+
+function checkName(){
+    let name_val =document.getElementById("name_valid");
+
+    if(!nameValue.value){
+        name_val.classList.remove("hidden");
+    } else {
+        name_val.classList.add("hidden");
+    }
+}
+
+
+function checkDate(){
+    let date_val =document.getElementById("date_valid");
+
+    if(!monthValue.value || !yearValue.value){
+        date_val.classList.remove("hidden");
+    } else {
+        date_val.classList.add("hidden");
+    }
+}
+
+function checkCVC(){
+    let cvc_val =document.getElementById("cvc_valid");
+
+    if(!cvcValue.value){
+        cvc_val.classList.remove("hidden");
+    } else {
+        cvc_val.classList.add("hidden");
+    }
+}
+
+function checkNumber(){
+    let cardNumber_fix = cardNumber.innerHTML.replace(/\s/g, '');
+    let isNumber = /^\d+$/.test(cardNumber_fix);
+
+    let num_val = document.getElementById("number_valid");
+    if(!isNumber || !numberValue.value){
+        // console.log("False")
+        num_val.classList.remove("hidden")
+        // console.log(num_val)
+    } else {
+        num_val.classList.add("hidden")
+    }
+}
+
 
 // numberValue.oninput = e => {
 //     e.target.value = patternMatch({
