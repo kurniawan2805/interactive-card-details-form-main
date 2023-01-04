@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --font-size : 18px;
+    --white-clr: hsl(0, 0%, 100%);
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+
+    --input-clr: hsl(249, 99%, 64%);
+    --input-to-clr: to hsl(278, 94%, 30%) ;
+    --red-clr: hsl(0, 100%, 66%);
+
+}
+
+body{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--font-size);
+    font-weight: 500;
+    background-color: gray;
+    min-height: 100vh;
+    max-width: 375px;
+    background-color: var(--white-clr);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+    
+    
+}
+
+.jumbotron{
+    /* background-color: white; */
+    color: white;
+    background-image: url("images/bg-main-mobile.png");
+    height: 26vh;
+    width: 100%;
+    padding: 25px 15px;
+    margin: 0 auto;
+}
+
+.front-card, .back-card{
+    width: fit-content;
+    /* margin: 0 15px; */
+    /* padding: 15px 15px; */
+}
+img {
+    max-height: 160px;
+}
+
+.back-card{
+    transform: translateX(18%);
+}
+.back-card #card-cvc{
+    position: absolute;
+    top: 72px;
+    right: 35px;
+    font-size: 10px;
+}
+
+.front-card{
+    transform: translateY(-45%);
+}
+.card-logo{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.card-logo img{
+    height: 30px;
+}
+
+.front-card #card-number{
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    font-size: 18px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+
+.card-info{
+    position: relative;
+    bottom: 35px;
+    font-size: 10px;
+}
+
+.card-info #card-name{
+    text-transform: uppercase;
+    position: absolute;
+    left: 20px;
+}
+
+.card-info #card-date{
+    position: absolute;
+    right: 20px;
+}
+
+.form-section{
+    background-color: var(--white-clr);
+    width: 100%;
+    padding: 15px;
+    padding-top: 4em;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    
+    /* max-width: 750px; */
+   
+    
+}
+
+label{
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    padding: 10px 0;
+    color: var(--very-dark-violet);
+    /* display: block; */
+}
+
+input{
+    font-size: large;
+    /* color: var(--light-grayish-violet); */
+    padding: 10px 15px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: var(--light-grayish-violet);
+}
+
+input:invalid {
+    border-color: var(--red-clr);
+}
+
+::placeholder{
+    color: var(--light-grayish-violet);
+}
+
+.validation{
+    color: var(--red-clr);
+    font-size: small;
+    padding: 5px 0;
+}
+
+.hidden{
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    /* display: none; */
+}
+
+.card_name, .card_number{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+}
+
+.expired_date_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    /* justify-content: space-between; */
+    padding: 5px;
+    gap: 10px;
+}
+
+.expired_date{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.date-container{
+    /* flex: 1; */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.cvc{
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+#submit{
+    background-color: var(--very-dark-violet);
+    color: var(--light-grayish-violet);
+    padding: 15px;
+    margin: 20px 5px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (min-width: 376px) {
+    /* For desktop: */
+    main{
+        flex-direction: row;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        }
+
+    .jumbotron {
+        color: white;
+        background-image: url("images/bg-main-desktop.png");
+        background-color: white;
+        width: 50%;
+        height: 100%;
+    }
+
+    .back-card {
+        transform: translateY(470px) translateX(300px) scale(1.4);
+    }
+
+        .front-card {
+            transform: translateY(40px) translateX(230px) scale(1.4);
+        }
+    
+    .form-section{
+        /* align-items: center;
+        justify-content: center; */
+        height: 100%;
+        width: 100%;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        /* margin-left: 1em; */
+        /* padding-left: 4em; */
+    }
+    form{
+        max-width: 30vw;
+        margin: 0 auto;
+        margin-right: 150px;
+        /* display: flex; */
+        flex-grow: 1;
+        /* align-items: flex-end; */
+        justify-content: center;
+    }
+
+}
