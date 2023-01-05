@@ -66,6 +66,7 @@ let modal_button = document.getElementById("modal-btn");
 modal_button.onclick = e => {
     myModal.classList.remove("active");
     myModal.classList.add("overflow");
+    resetForm();
 }
 
 
@@ -134,6 +135,14 @@ function checkNumber(){
         num_val.classList.add("hidden");
         return true;
     }
+}
+
+function resetForm(){
+    nameValue.value="";
+    numberValue.value="";
+    monthValue.value="";
+    yearValue.value="";
+    cvcValue.value="";
 }
 
 
