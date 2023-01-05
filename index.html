@@ -38,7 +38,22 @@
         </div>
       </div>
       <div class="form-section">
-        <form>
+          <div class="modal-container overflow" id="myModal">
+                <img class="modal-img" src="images/icon-complete.svg" alt="suceess submit">
+                <h1 class="modal-title">THANK YOU!</h1>
+              
+                <p class="modal-body">We've added your card details</p>
+                <button type="button" class="btn" id="modal-btn">
+                  Continue
+                </button>
+              <!-- <div class="modal-footer">
+                
+              </div> -->
+            </div>
+            <!-- /.modal-content -->
+          </div>
+        <!-- /.modal -->
+        <form id="myForm">
           <div class="card_name">
             <label for="card_name">Cardholder Name</label>
             <input
@@ -113,7 +128,7 @@
               >
             </div>
           </div>
-          <button id="submit" type="submit">Confirm</button>
+          <button id="submit" class="btn" type="submit">Confirm</button>
         </form>
       </div>
     </main>

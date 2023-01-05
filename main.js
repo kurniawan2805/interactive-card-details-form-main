@@ -26,6 +26,7 @@ let yearValue = document.getElementById("year");
 let cardYear= document.getElementById("card-year");
 
 yearValue.oninput = e => {
+    // e.target.value = pad(e.target.value,2);
     cardYear.innerText = e.target.value;
 }
 
@@ -45,13 +46,45 @@ submit_button.onclick = e => {
     checkCVC();
 }
 
+
+
+let myForm = document.getElementById("myForm");
+let myModal = document.getElementById("myModal")
+
+myForm.onsubmit = e => {
+    let formCheck = (checkCVC() && checkDate() && checkName && checkNumber())
+    e.preventDefault();
+    if(myForm.checkValidity() && formCheck){
+        myModal.classList.remove("overflow");
+        myModal.classList.add("active");
+    }
+    
+}
+
+let modal_button = document.getElementById("modal-btn");
+
+modal_button.onclick = e => {
+    myModal.classList.remove("active");
+    myModal.classList.add("overflow");
+}
+
+
+function pad(num, size) {
+    num = num.toString();
+    while (num.length < size) num = "0" + num;
+    return num;
+}
+
 function checkName(){
     let name_val =document.getElementById("name_valid");
 
     if(!nameValue.value){
         name_val.classList.remove("hidden");
+        nameValue.focus();
+        return false;
     } else {
         name_val.classList.add("hidden");
+        return true;
     }
 }
 
@@ -59,20 +92,30 @@ function checkName(){
 function checkDate(){
     let date_val =document.getElementById("date_valid");
 
-    if(!monthValue.value || !yearValue.value){
+    if(!monthValue.value){
         date_val.classList.remove("hidden");
-    } else {
+        monthValue.focus();
+        return false;
+    } if(!yearValue.value){
+        date_val.classList.remove("hidden");
+        yearValue.focus();
+        return false;
+    } 
         date_val.classList.add("hidden");
-    }
+        return true;
+    
 }
 
 function checkCVC(){
     let cvc_val =document.getElementById("cvc_valid");
 
-    if(!cvcValue.value){
+    if(!cvcValue.value || cvcValue.value.length !== 3){
         cvc_val.classList.remove("hidden");
+        cvcValue.focus();
+        return false;
     } else {
         cvc_val.classList.add("hidden");
+        return true;
     }
 }
 
@@ -81,12 +124,15 @@ function checkNumber(){
     let isNumber = /^\d+$/.test(cardNumber_fix);
 
     let num_val = document.getElementById("number_valid");
-    if(!isNumber || !numberValue.value){
+    if(!isNumber || cardNumber_fix.length < 16){
         // console.log("False")
-        num_val.classList.remove("hidden")
+        num_val.classList.remove("hidden");
+        numberValue.focus();
+        return false;
         // console.log(num_val)
     } else {
-        num_val.classList.add("hidden")
+        num_val.classList.add("hidden");
+        return true;
     }
 }
 
